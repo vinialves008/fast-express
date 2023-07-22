@@ -11,7 +11,7 @@ const Secret = require('../secret');
 const { instance, log, error } = require('../middleware');
 
 module.exports = class Server {
-  constructor() {
+  constructor({ routes }) {
     const secret = new Secret();
     this.port = secret.port;
     this.env = secret.env;
@@ -88,8 +88,6 @@ module.exports = class Server {
     this.app.use(instance);
 
     this.app.use('/healthcheck', (req, res) => { res.status(200).send({ status: 'ok' }); });
-
-    const routes = require('../../routes');
     this.app.use(routes);
 
     // eslint-disable-next-line no-unused-vars
