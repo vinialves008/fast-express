@@ -25,6 +25,8 @@ module.exports = {
   },
   rules: {
     'no-console': ['error', { allow: ['error', 'info'] }],
-    'max-len': ["error", { "ignoreUrls": true, "code": 100 }]
+    'max-len': ["error", { "ignoreUrls": true, "code": 100 }],
+    "global-require": 0,
+    "import/no-extraneous-dependencies": "off",
   },
 };

@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
@@ -5,9 +6,9 @@ const helmet = require('helmet');
 const cors = require('cors');
 const { expressCspHeader } = require('express-csp-header');
 
-const error = require('../middleware/error');
-
 const Secret = require('../secret');
+
+const { instance, log, error } = require('../middleware');
 
 module.exports = class Server {
   constructor() {
@@ -82,6 +83,14 @@ module.exports = class Server {
 
       this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
     }
+
+    this.app.use(log);
+    this.app.use(instance);
+
+    this.app.use('/healthcheck', (req, res) => { res.status(200).send({ status: 'ok' }); });
+
+    const routes = require('../../routes');
+    this.app.use(routes);
 
     // eslint-disable-next-line no-unused-vars
     this.app.use((req, res, next) => {
