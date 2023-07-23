@@ -1,0 +1,19 @@
+{
+  "name": "api-flash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:migrate": "npx knex migrate:latest",
+    "db:migrate:make": "npx knex migrate:make",
+    "db:migrate:rollback": "npx knex migrate:rollback"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vinialves08/fast-express": "^0.0.5",
+    "bluebird": "^3.7.2",
+    "http": "^0.0.1-security"
+  }
+}

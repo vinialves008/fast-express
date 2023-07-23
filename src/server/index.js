@@ -88,7 +88,7 @@ module.exports = class Server {
     this.app.use(instance);
 
     this.app.use('/healthcheck', (req, res) => { res.status(200).send({ status: 'ok' }); });
-    this.app.use(routes);
+    this.app.use(`/${secret.baseUrl}`, routes);
 
     // eslint-disable-next-line no-unused-vars
     this.app.use((req, res, next) => {
