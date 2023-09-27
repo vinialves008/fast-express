@@ -12,8 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vinialves08/fast-express": "^0.0.5",
+    "@vinialves08/fast-express": "^0.0.7",
     "bluebird": "^3.7.2",
+    "express": "^4.18.2",
     "http": "^0.0.1-security"
   }
 }

@@ -1,11 +1,11 @@
 const http = require('http');
 const { Server } = require('@vinialves08/fast-express');
-const routes = require('./src/routes')
+const routes = require('./src/routes');
 
 // eslint-disable-next-line no-global-assign
 Promise = require('bluebird');
 
-const server = new Server({routes});
+const server = new Server({ routes });
 // eslint-disable-next-line no-underscore-dangle
 const _http = http.Server(server.app);
 
