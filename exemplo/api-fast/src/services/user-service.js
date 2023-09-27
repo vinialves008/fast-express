@@ -1,10 +1,9 @@
 const { Util } = require('@vinialves08/fast-express');
 
-const { Service } = require('../../../../index');
+const { Service } = require('@vinialves08/fast-express');
 const UserView = require('../view/user-view');
 const userModel = require('../model/user-model');
 const EnderecoService = require('./endereco-service');
-
 
 module.exports = class User extends Service {
   constructor(knex) {

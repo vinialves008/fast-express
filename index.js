@@ -4,4 +4,5 @@ module.exports = {
   Service: require('./src/service'),
   Util: require('./src/util'),
   Exception: require('./src/exception'),
+  RoutesFast: require('./src/routes'),
 };

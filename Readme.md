@@ -26,13 +26,13 @@ http://localhost:3000/healthcheck
 ```
 
 
-### Ao criar um novo serviço você deverá extender da classe Service e já terá disponível as funcionalidades de create, update, findById, findOne e delete.
+### Ao criar um novo serviço você deverá extender da classe Service e já terá disponível as funcionalidades de create, update, patch, findById, findOne e delete.
 ```sh
 const { Service } = require('@vinialves08/fast-express')
 
 module.exports = class User extends Service {
     constructor(knex) {
-      super(knex, { tableName: 'user' });
+      super(knex, { tableName: 'user', view: UserView, withRelations: ['endereco'] });
     }
 };
 ```
